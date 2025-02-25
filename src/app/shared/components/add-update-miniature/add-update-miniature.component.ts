@@ -22,18 +22,17 @@ import {
   personAddOutline,
   personOutline,
   alertCircleOutline,
+  imageOutline
 } from 'ionicons/icons';
-import { IonButton } from '@ionic/angular/standalone';
-import { LogoComponent } from 'src/app/shared/components/logo/logo.component';
+import { IonButton, IonAvatar } from '@ionic/angular/standalone';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { User } from 'src/app/models/user.model';
 import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.page.html',
-  styleUrls: ['./sign-up.page.scss'],
-  standalone: true,
+  selector: 'app-add-update-miniature',
+  templateUrl: './add-update-miniature.component.html',
+  styleUrls: ['./add-update-miniature.component.scss'],
   imports: [
     IonIcon,
     HeaderComponent,
@@ -43,19 +42,20 @@ import { UtilsService } from 'src/app/services/utils.service';
     CustomInputComponent,
     ReactiveFormsModule,
     IonButton,
-    LogoComponent,
+    IonAvatar,
   ],
 })
-export class SignUpPage implements OnInit {
-  form = new FormGroup({
-    uid: new FormControl(''),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
-    name: new FormControl('', [Validators.required, Validators.minLength(4)]),
-  });
-
+export class AddUpdateMiniatureComponent implements OnInit {
   firebaseService = inject(FirebaseService);
   utilsService = inject(UtilsService);
+
+  form = new FormGroup({
+    id: new FormControl(''),
+    image: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    units: new FormControl('', [Validators.required, Validators.min(1)]),
+    strength: new FormControl('', [Validators.required, Validators.min(0)]),
+  });
 
   constructor() {
     addIcons({
@@ -64,10 +64,19 @@ export class SignUpPage implements OnInit {
       personAddOutline,
       personOutline,
       alertCircleOutline,
+      imageOutline
     });
   }
-
   ngOnInit() {}
+
+  async takeImage() {
+    const dataUrl = (
+      await this.utilsService.takePicture('Imagen de la miniatura')
+    ).dataUrl;
+    if (dataUrl) {
+      this.form.controls.image.setValue(dataUrl);
+    }
+  }
 
   async submit() {
     if (this.form.valid) {
@@ -76,40 +85,8 @@ export class SignUpPage implements OnInit {
       this.firebaseService
         .signUp(this.form.value as User)
         .then(async (res) => {
-          this.firebaseService.updateUser(this.form.value.name!)
+          this.firebaseService.updateUser(this.form.value.name!);
           let uid = res.user!.uid;
-          this.form.controls.uid.setValue(uid);
-          this.setUserInfo(uid);
-        })
-        .catch((error) => {
-          this.utilsService.presentToast({
-            message: error.message,
-            duration: 2500,
-            color: 'danger',
-            position: 'middle',
-            icon: 'alert-circle-outline',
-          });
-        })
-        .finally(() => {
-          loading.dismiss();
-        });
-    }
-  }
-
-  async setUserInfo(uid: string) {
-    if (this.form.valid) {
-      const loading = await this.utilsService.loading();
-      await loading.present();
-
-      let path = `users/${uid}`;
-      delete this.form.value.password;
-
-      this.firebaseService
-        .setDocument(path, this.form.value)
-        .then((res) => {
-          this.utilsService.saveInLocalStorage('user', this.form.value);
-          this.form.reset();
-          this.utilsService.routerLink('/home');
         })
         .catch((error) => {
           this.utilsService.presentToast({
