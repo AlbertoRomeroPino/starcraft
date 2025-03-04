@@ -68,7 +68,7 @@ export class HomePage implements OnInit {
     const path: string = `users/${user.uid}/miniatures`;
 
     const queryOptions: QueryOptions = {
-      orderBy: { field: 'strength', direction: 'desc' },
+      orderBy: { field: 'name', direction: 'desc' },
     };
 
     let timer: any;

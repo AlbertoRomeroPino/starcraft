@@ -1,11 +1,57 @@
 .image-icon {
-    font-size: 100px;
-    opacity: 30%;
+  font-size: 100px;
+  opacity: 30%;
+  color: #2b00ff; /* Color de icono inspirado en Starcraft II */
 }
 
 ion-avatar {
-    width: 200px;
-    height: 160px;
-    --border-radius: 15px;
-    margin: 0 auto;
+  width: 200px;
+  height: 160px;
+  --border-radius: 15px;
+  margin: 0 auto;
+  border: 2px solid #00ffff; /* Borde inspirado en Starcraft II */
+}
+
+ion-button {
+  background-color: #00ffff00; /* Color de fondo del botón inspirado en Starcraft II */
+  color: #000000; /* Color de texto del botón */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif; /* Fuente futurista */
+}
+
+ion-button:hover {
+  background-color: #00cccc00; /* Color de fondo del botón al pasar el ratón */
+}
+
+.validators {
+  color: #ffcc00; /* Color de texto de validación inspirado en Starcraft II */
+}
+
+app-custom-input {
+  --background: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
+  --color: #00ffff; /* Color de texto inspirado en Starcraft II */
+  --border-color: #00ffff; /* Color del borde inspirado en Starcraft II */
+  --placeholder-color: #00ffff; /* Color del placeholder inspirado en Starcraft II */
+  --highlight-color-focused: #00ffff; /* Color de resaltado cuando está enfocado */
+
+  ion-icon {
+    color: #00ffff; /* Color de icono inspirado en Starcraft II */
+  }
+
+  ion-input {
+    --background: transparent;
+    --color: #ffffff; /* Color de texto inspirado en Starcraft II */
+    --placeholder-color: #00ffff; /* Color del placeholder inspirado en Starcraft II */
+    --highlight-color-focused: #00ffff; /* Color de resaltado cuando está enfocado */
+  }
+
+  ion-button {
+    color: #00ffff00; /* Color del botón inspirado en Starcraft II */
+
+    ion-icon {
+      color: #00ffff00; /* Color de icono del botón inspirado en Starcraft II */
+    }
+  }
 }

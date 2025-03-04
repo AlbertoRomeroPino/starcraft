@@ -8,11 +8,17 @@
       <ion-button *ngIf="isModal" (click)="dismissModal()">
         <ion-icon slot="start" name="close-circle-outline"></ion-icon>
       </ion-button>
-        <ion-menu-button *ngIf="showMenuButton" menu="menu-content"></ion-menu-button>
+      <ion-menu-button *ngIf="showMenuButton" menu="menu-content"></ion-menu-button>
     </ion-buttons>
     <ion-title>
       <strong>{{ title }}</strong>
-      <div class="wmm">Starcraft</div></ion-title
-    >
+      <div class="wmm">Starcraft</div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="installPWA()">
+        <ion-icon slot="start" name="download-outline"></ion-icon>
+        Instalar
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>

@@ -8,11 +8,9 @@
     <ion-avatar *ngIf="form.value.image">
       <img [src]="form.value.image" />
     </ion-avatar>
-    <ion-icon
-      class="image-icon"
-      name="image-outline"
-      *ngIf="!form.value.image"
-    ></ion-icon>
+    <div class="image-icon" *ngIf="!form.value.image">
+      <img src="assets/Letras-logo.svg" alt="Logo" />
+    </div>
     <br />
     <ion-button (click)="takeImage()" size="small" shape="round" mode="ios">
       Tomar / Seleccionar

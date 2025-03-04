@@ -3,9 +3,33 @@
     --border-style: solid;
     --border-width: 1px;
     margin: 20px 0;
+    --background: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
+    --color: #00ffff; /* Color de texto inspirado en Starcraft II */
+    --border-color: #00ffff; /* Color del borde inspirado en Starcraft II */
+    --placeholder-color: #00ffff; /* Color del placeholder inspirado en Starcraft II */
+    --highlight-color-focused: #00ffff; /* Color de resaltado cuando está enfocado */
 
     ion-label {
         position: relative;
         bottom: 2px;
+    }
+
+    ion-icon {
+        color: #00ffff; /* Color de icono inspirado en Starcraft II */
+    }
+
+    ion-input {
+        --background: transparent;
+        --color: #ffffff; /* Color de texto inspirado en Starcraft II */
+        --placeholder-color: #00ffff; /* Color del placeholder inspirado en Starcraft II */
+        --highlight-color-focused: #00ffff; /* Color de resaltado cuando está enfocado */
+    }
+
+    ion-button {
+        color: #00ffff; /* Color del botón inspirado en Starcraft II */
+
+        ion-icon {
+            color: #00ffff; /* Color de icono del botón inspirado en Starcraft II */
+        }
     }
 }

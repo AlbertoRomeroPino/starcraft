@@ -30,6 +30,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { User } from 'src/app/models/user.model';
 import { UtilsService } from 'src/app/services/utils.service';
 import { Miniature } from 'src/app/models/miniature.model';
+import { SupabaseService } from 'src/app/services/supabase.service';
 
 interface MiniatureForm {
   id: string | null;
@@ -61,6 +62,7 @@ export class AddUpdateMiniatureComponent implements OnInit {
   @Input() miniature: MiniatureForm | null = null;
   firebaseService = inject(FirebaseService);
   utilsService = inject(UtilsService);
+  supabaseService = inject(SupabaseService);
 
   user = {} as User;
 
@@ -119,7 +121,7 @@ export class AddUpdateMiniatureComponent implements OnInit {
     const path: string = `users/${this.user.uid}/miniatures`;
     const imageDataUrl = this.form.value.image;
     const imagePath = `${this.user.uid}/${Date.now()}`;
-    const imageUrl = await this.firebaseService.uploadImage(
+    const imageUrl = await this.supabaseService.uploadImage(
       imagePath,
       imageDataUrl!
     );

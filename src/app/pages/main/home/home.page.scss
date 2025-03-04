@@ -10,29 +10,37 @@
         width: 70px;
         height: 80px;
         --border-radius: 15px;
+        border: 2px solid #00ffff; /* Borde inspirado en Starcraft II */
+        margin-right: 15px; /* Añadir margen derecho para separación */
     }
 
     .name {
         font-weight: 600;
         padding-bottom: 5px;
+        color: #fffdfd; /* Color de texto negro */
     }
 
     .data {
         font-size: 13px;
+        color: #ffffff; /* Color de texto negro */
 
         strong {
             font-weight: 500;
+            color: #918080; /* Color de texto fuerte negro */
         }
     }
 
     .option-btn {
         font-size: 27px;
+        color: #00ffff; /* Color de icono inspirado en Starcraft II */
     }
 
     ion-chip {
         font-size: 14px;
         border-radius: 10px;
         margin-left: 0;
+        color: #00ffff; /* Color de texto del chip inspirado en Starcraft II */
+        border: 1px solid #00ffff; /* Borde del chip inspirado en Starcraft II */
     }
 }
 
@@ -43,6 +51,7 @@
 
     ion-icon {
         font-size: 100px;
+        color: #00ffff; /* Color de icono inspirado en Starcraft II */
     }
 }
 
@@ -50,8 +59,95 @@ ion-card {
     gap: 100px;
     padding: 20px 0;
     border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
+    border: 1px solid #00ffff; /* Borde inspirado en Starcraft II */
+    color: #ffffff; /* Color de texto inspirado en Starcraft II */
 }
 
 .miniatures-list {
     padding-bottom: 70px;
+}
+
+ion-content {
+    --background-size: cover;
+    --color: #ffffff;
+    --padding-top: 28px;
+}
+
+ion-item {
+    font-size: 14px;
+    color: #00ffff; /* Color de texto inspirado en Starcraft II */
+    --background: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
+
+    ion-icon {
+        color: #00ffff; /* Color de icono inspirado en Starcraft II */
+    }
+
+    &.active {
+        color: #ffcc00; /* Color de texto activo inspirado en Starcraft II */
+
+        ion-icon {
+            color: #ffcc00; /* Color de icono activo inspirado en Starcraft II */
+        }
+    }
+}
+
+ion-menu {
+    --width: 254px;
+    --min-width: 254px;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro con opacidad */
+}
+
+h4 {
+    margin-top: 5px;
+    font-weight: bold;
+    color: #00ffff; /* Color de texto inspirado en Starcraft II */
+}
+
+.avatar-icon {
+    font-size: 100px;
+    color: #00ffff; /* Color de icono inspirado en Starcraft II */
+}
+
+ion-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    border: 2px solid #00ffff; /* Borde inspirado en Starcraft II */
+}
+
+button {
+    background-color: #00ffff; /* Color de fondo del botón inspirado en Starcraft II */
+    color: #000000; /* Color de texto del botón */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif; /* Fuente futurista */
+}
+
+button:hover {
+    background-color: #00cccc; /* Color de fondo del botón al pasar el ratón */
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
+    border: 1px solid #00ffff; /* Borde inspirado en Starcraft II */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+input, textarea {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
+    border: 1px solid #00ffff; /* Borde inspirado en Starcraft II */
+    color: #ffffff;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #00ffff; /* Color del placeholder inspirado en Starcraft II */
 }
